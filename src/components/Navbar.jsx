@@ -11,7 +11,7 @@ const Navbar = () => {
             
             
             </div>
-        <ul>
+        {/* <ul>
           <li className="flex gap-4 transition-all">
             <a className="hover:font-bold" href="/">
               Home
@@ -23,7 +23,12 @@ const Navbar = () => {
               About
             </a>
           </li>
-        </ul>
+        </ul> */}
+        <button className="flex bg-green-700 rounded-full justify-between items-center ">
+          <img className="w-10 p-1 rounded-full"  src="/icons/git.png" alt="" />
+          <span className="p-1 font-bold pr-1
+          ">GitHub</span>
+        </button>
       </div>
     </nav>
   );
