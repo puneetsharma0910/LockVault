@@ -1,46 +1,57 @@
-# 🔐 LockVault - Your Secure Password Manager  
+# LockVault - Password Manager
 
-LockVault is a **modern and secure password manager** built using **React, Node.js, Express, and MongoDB**. It allows users to **store, view, edit, and delete passwords securely**, ensuring your credentials are safe and easily accessible.  
+LockVault is a simple password manager built using React. It allows users to store, view, and manage their passwords securely using local storage.
 
----
+## Features
 
-## 🚀 Features  
-✔️ **Add Passwords** – Securely store website credentials.  
-✔️ **View Passwords** – Toggle password visibility with an eye icon.  
-✔️ **Edit Passwords** – Modify saved credentials easily.  
-✔️ **Delete Passwords** – Remove unwanted credentials.  
-✔️ **Copy to Clipboard** – Click the copy icon to copy usernames and passwords.  
-✔️ **Persistent Storage** – Uses MongoDB for secure data storage.  
+- Add and store passwords with site URLs and usernames
+- View saved passwords with a toggle option
+- Edit or delete passwords easily
+- Copy credentials to clipboard
+- Responsive design for mobile and desktop
 
----
+## Technologies Used
 
-## 🛠️ Tech Stack  
-**Frontend:** React, Tailwind CSS 🌿  
-**Backend:** Node.js, Express.js, MongoDB 🚀  
+- React (useState, useEffect, useRef)
+- Local Storage for saving passwords
+- React Toastify for notifications
+- Tailwind CSS for styling
 
----
+## How to Use
 
-## 📥 Installation & Setup  
-```bash
-# 1️⃣ Clone the repository
-git clone https://github.com/puneetsharma0910/lockvault.git
-cd lockvault
+1. Enter the website URL, username, and password.
+2. Click the "Save" button to store the password.
+3. Use the eye icon to toggle password visibility.
+4. Click the copy icon to copy credentials to the clipboard.
+5. Edit or delete passwords using the action buttons.
 
-# 2️⃣ Install dependencies for both frontend & backend
-cd client && npm install
-cd ../server && npm install
+## Installation
 
-# 3️⃣ Set up environment variables
-# Create a .env file in the server directory and add:
-MONGO_URI=your_mongodb_connection_string
-PORT=5000
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/puneetsharma0910/lockvault.git
+   ```
+2. Navigate to the project folder:
+   ```bash
+   cd lockvault
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the application:
+   ```bash
+   npm start
+   ```
 
-# 4️⃣ Start the backend
-cd server
-npm start
+## Screenshots
 
-# 5️⃣ Start the frontend
-cd ../client
-npm start
+### Homepage
+![Homepage](screenshots/homepage.png.png)
 
-# 🎉 The app will be live at: http://localhost:3000/
+
+## Contributing
+Feel free to contribute to the project by submitting issues or pull requests!
+
+## License
+This project is open-source and available under the MIT License.
