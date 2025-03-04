@@ -31,30 +31,41 @@ const Manager = () => {
       ref.current.src = "icons/eyecross.jpg";
     }
   };
-
   const savepassword = () => {
-    const newPasswords = [...passwordarray, { ...form, id: uuidv4() }]; // Corrected issue
-    setpasswordarray(newPasswords);
-    localStorage.setItem("passwords", JSON.stringify(newPasswords));
-    toast("Password saved!", {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+    if (
+      form.site.length > 3 &&
+      form.username.length > 3 &&
+      form.password.length > 3
+    ) {
+      const newPasswords = [...passwordarray, { ...form, id: uuidv4() }];
+      setpasswordarray(newPasswords);
+      localStorage.setItem("passwords", JSON.stringify(newPasswords));
 
-    // Reset form after saving
-    setform({ site: "", username: "", password: "" });
+      toast.success("Password saved!", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+
+      // Reset form after saving
+      setform({ site: "", username: "", password: "" });
+    } else {
+      toast.error("Password length is too short!", {
+        position: "top-right",
+        autoClose: 1500,
+        theme: "dark",
+      });
+    }
   };
 
   const deletePassword = (id) => {
-    let c = confirm("Do you really want to delete this password?")
-    if(c){
-
+    let c = confirm("Do you really want to delete this password?");
+    if (c) {
       const newPasswords = passwordarray.filter((item) => item.id !== id); // Corrected issuepassword
       setpasswordarray(newPasswords);
       localStorage.setItem("passwords", JSON.stringify(newPasswords));
@@ -70,7 +81,6 @@ const Manager = () => {
       });
     }
 
-      
     //setform({ site: "", username: "", password: "" });
   };
   const editPassword = (id) => {
@@ -122,7 +132,7 @@ const Manager = () => {
         <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-green-400 opacity-20 blur-[100px]"></div>
       </div>
 
-      <div className="apna max-w-4xl">
+      <div className="md:apna p-2  md:p-0 max-w-4xl">
         <h1 className="text-4xl font-bold text-center">
           <span className="text-green-500">&lt;</span>
           Lock
@@ -140,7 +150,7 @@ const Manager = () => {
             onChange={handlechange}
             name="site"
           />
-          <div className="flex w-full gap-8">
+          <div className="flex flex-col md:flex-row w-full gap-8">
             <input
               placeholder="Enter Username"
               className="rounded-full w-full p-3 py-1 border border-green-500"
